@@ -57,6 +57,9 @@ class _TodoListMainPageState extends State<TodoListMainPage> {
               controller: _textEditingController,
               decoration: const InputDecoration(
                 hintText: "Input new Todo List Item",
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(8.0))
+                )
               ),
               onSubmitted: _addTodoItem,
             ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'pages/mainpage.dart';
+// import 'pages/mainpage.dart';
+import 'presenter/todopresenter.dart';
 
 void main() {
   runApp(const MainApp());
@@ -13,7 +14,8 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       title: 'Todo List',
       theme: ThemeData(primaryColor: Colors.blue),
-      home: TodoListMainPage(),
+      // home: TodoListMainPage(),
+      home: TodoScreen(),
     );
   }
 }
