@@ -1,0 +1,42 @@
+name: Flutter CI / Build APK
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: Build APK
+    runs-on: ubuntu-latest
+
+    steps:
+      # 检出代码
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # 安装 Flutter
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.29.3'  # 可根据需要修改 Flutter 版本
+
+      # 获取依赖
+      - name: Get dependencies
+        run: flutter pub get
+
+      - name: Run tests
+        run: flutter test
+
+      # 构建 APK
+      - name: Build APK
+        run: flutter build apk --release
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v2
+        with:
+          name: app-release-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
