@@ -11,9 +11,22 @@ class TodoTaskInformation {
   });
 }
 
+class TodoItem {
+  String id;
+  String title;
+  bool isCompleted;
+
+  TodoItem({
+    required this.id,
+    required this.title,
+    this.isCompleted = false,
+  });
+}
+
+
 // 管理所有的待办任务
 class TasksManager {
-  List<TodoTaskInformation> _tasks = [];
+  final List<TodoTaskInformation> _tasks = [];
   List<TodoTaskInformation> getTasks() => _tasks;
 
   void addTask(String title) {
